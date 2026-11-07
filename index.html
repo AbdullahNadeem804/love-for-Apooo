@@ -1,0 +1,694 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Apoooo ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg,#26002e,#75004f,#ed5b9e);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.screen.active {
+    display: flex;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: scale(.94); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+    font-size: clamp(30px,6vw,55px);
+    color: #fff;
+    text-shadow: 0 0 15px #ff5eae, 0 0 30px #ff1493;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 30px;
+    color: #ffe0f1;
+    margin: 15px;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 19px;
+}
+
+.next {
+    display: none;
+    margin-top: 30px;
+    background: linear-gradient(45deg,#ff1687,#ff75b9);
+    color: white;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 14px 40px;
+    font-size: 21px;
+    cursor: pointer;
+    box-shadow: 0 0 25px #ff4fa5;
+    transition: .3s;
+}
+
+.next:hover {
+    transform: scale(1.12);
+}
+
+.small-text {
+    color: #ffd7ed;
+    margin-top: 15px;
+}
+
+/* SCREEN 1 TREE */
+
+.tree {
+    position: relative;
+    width: 320px;
+    height: 390px;
+    margin-top: 20px;
+}
+
+.trunk {
+    position: absolute;
+    width: 35px;
+    height: 210px;
+    background: linear-gradient(90deg,#54230c,#a75b2c,#57240c);
+    bottom: 0;
+    left: 143px;
+    border-radius: 15px;
+}
+
+.branch {
+    position: absolute;
+    width: 14px;
+    height: 125px;
+    background: #81421e;
+    border-radius: 20px;
+    bottom: 130px;
+    left: 150px;
+    transform: rotate(-40deg);
+    transform-origin: bottom;
+}
+
+.branch.two {
+    transform: rotate(40deg);
+}
+
+.branch.three {
+    height: 100px;
+    transform: rotate(-10deg);
+}
+
+.tree-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    cursor: pointer;
+}
+
+.leaf-heart {
+    position: absolute;
+    color: #ff3b8d;
+    text-shadow: 0 0 15px #ffb0d3;
+    animation: heartBeat 1.4s infinite alternate;
+    user-select: none;
+}
+
+@keyframes heartBeat {
+    to { transform: scale(1.18); }
+}
+
+.tree-hint {
+    margin-top: 10px;
+    color: #ffe1ef;
+}
+
+/* FLOATING HEARTS */
+
+.floating-heart {
+    position: fixed;
+    bottom: -40px;
+    z-index: 10;
+    pointer-events: none;
+    animation: floatUp 3.5s linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* SCREEN 2 BIG HEART */
+
+.big-heart-area {
+    position: relative;
+    width: 280px;
+    height: 260px;
+    margin: 30px;
+    cursor: pointer;
+}
+
+.big-heart {
+    position: absolute;
+    font-size: 230px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    filter: drop-shadow(0 0 25px #ff2c8d);
+    transition: 1.5s;
+}
+
+.heart-left, .heart-right {
+    position: absolute;
+    font-size: 230px;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    transition: 1.5s;
+}
+
+.heart-left {
+    left: 50%;
+    clip-path: inset(0 50% 0 0);
+}
+
+.heart-right {
+    left: 50%;
+    clip-path: inset(0 0 0 50%);
+}
+
+.big-heart-area.open .big-heart {
+    opacity: 0;
+    transform: translate(-50%,-50%) scale(.3);
+}
+
+.big-heart-area.open .heart-left {
+    opacity: 1;
+    left: 5%;
+    transform: translate(-50%,-50%) rotate(-25deg);
+}
+
+.big-heart-area.open .heart-right {
+    opacity: 1;
+    left: 95%;
+    transform: translate(-50%,-50%) rotate(25deg);
+}
+
+.love-paper {
+    display: none;
+    background: linear-gradient(135deg,#fff5f9,#ffd3e6);
+    color: #a60055;
+    padding: 35px 25px;
+    border-radius: 12px;
+    width: min(90%,480px);
+    box-shadow: 0 0 35px #ff9bc8;
+    border: 4px solid #fff;
+    animation: paperOpen 1.5s ease;
+}
+
+@keyframes paperOpen {
+    from { transform: scale(.2) rotate(-15deg); opacity: 0; }
+    to { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.love-paper h2 {
+    color: #d60068;
+    font-size: clamp(30px,7vw,48px);
+    line-height: 1.4;
+}
+
+/* SCREEN 3 CARD */
+
+.card-container {
+    perspective: 1000px;
+    width: min(90%,420px);
+    height: 270px;
+    margin: 30px 0;
+    cursor: pointer;
+}
+
+.love-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.2s;
+}
+
+.card-container.open .love-card {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-inside {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    border: 3px solid white;
+    box-shadow: 0 0 30px #ff75b9;
+}
+
+.card-front {
+    background: linear-gradient(135deg,#ff3d91,#97005b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-front .envelope {
+    font-size: 85px;
+}
+
+.card-front h2 {
+    font-size: 27px;
+}
+
+.card-inside {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg,#fff3f8,#ffd0e5);
+    color: #8b004b;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.urdu-message {
+    font-family: 'Noto Nastaliq Urdu','Jameel Noori Nastaleeq',serif;
+    font-size: clamp(16px,3.7vw,21px);
+    line-height: 2.1;
+    direction: rtl;
+    text-align: center;
+    overflow-y: auto;
+    max-height: 230px;
+    width: 100%;
+}
+
+.card-hint {
+    color: #ffe2f1;
+}
+
+/* SCREEN 4 POETRY */
+
+.poetry-box {
+    width: min(95%,650px);
+    background: linear-gradient(135deg,rgba(255,255,255,.17),rgba(255,150,200,.12));
+    border: 2px solid #ffc3df;
+    border-radius: 25px;
+    padding: 30px 20px;
+    box-shadow: 0 0 30px #ff4b9d;
+    backdrop-filter: blur(10px);
+}
+
+.poetry {
+    font-family: 'Noto Nastaliq Urdu','Jameel Noori Nastaleeq',serif;
+    font-size: clamp(18px,4vw,25px);
+    line-height: 2.2;
+    direction: rtl;
+    color: #fff0f7;
+}
+
+.bhiya {
+    font-size: clamp(35px,8vw,65px);
+    font-weight: bold;
+    color: #fff;
+    margin-top: 30px;
+    text-shadow: 0 0 12px #ff4ca2,0 0 35px #ff0080;
+    animation: heartBeat 1s infinite alternate;
+}
+
+.end-heart {
+    font-size: 60px;
+    margin-top: 15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1: TREE -->
+
+<section class="screen active" id="screen1">
+
+    <h1>🌹 For My Apoooo 🌹</h1>
+
+    <p>Yeh chhota sa surprise sirf meri Apoooo ke liye ❤️</p>
+
+    <div class="tree">
+
+        <div class="trunk"></div>
+        <div class="branch"></div>
+        <div class="branch two"></div>
+        <div class="branch three"></div>
+
+        <div class="tree-hearts" onclick="treeClick()">
+
+            <span class="leaf-heart" style="top:25px;left:110px;font-size:65px">❤️</span>
+            <span class="leaf-heart" style="top:5px;left:50px;font-size:55px">💗</span>
+            <span class="leaf-heart" style="top:10px;left:190px;font-size:55px">💖</span>
+            <span class="leaf-heart" style="top:75px;left:25px;font-size:50px">💕</span>
+            <span class="leaf-heart" style="top:75px;left:225px;font-size:50px">💗</span>
+            <span class="leaf-heart" style="top:105px;left:100px;font-size:50px">💘</span>
+            <span class="leaf-heart" style="top:105px;left:170px;font-size:50px">❤️</span>
+            <span class="leaf-heart" style="top:145px;left:55px;font-size:45px">💓</span>
+            <span class="leaf-heart" style="top:145px;left:210px;font-size:45px">💞</span>
+
+        </div>
+
+    </div>
+
+    <p class="tree-hint" id="treeHint">👆 Tree ke hearts par click karo</p>
+
+    <button class="next" id="next1" onclick="goTo(2)">NEXT ❤️</button>
+
+</section>
+
+
+<!-- SCREEN 2: BIG HEART -->
+
+<section class="screen" id="screen2">
+
+    <h1>My Heart Belongs To You ❤️</h1>
+
+    <p>Is dil par click karo, Apoooo!</p>
+
+    <div class="big-heart-area" id="bigHeartArea" onclick="openHeart()">
+
+        <div class="big-heart">❤️</div>
+        <div class="heart-left">❤️</div>
+        <div class="heart-right">❤️</div>
+
+    </div>
+
+    <div class="love-paper" id="lovePaper">
+
+        <h2>BEAUTIFUL APOOOO</h2>
+
+        <h2>I LOVE YOU ❤️</h2>
+
+        <p style="color:#b3005b;font-size:22px">
+            SO MUCHHHH! 😘
+        </p>
+
+        <p style="color:#b3005b;margin-top:10px">
+            You are my happiness, my blessing and my everything.
+        </p>
+
+    </div>
+
+    <button class="next" id="next2" onclick="goTo(3)">NEXT 💌</button>
+
+</section>
+
+
+<!-- SCREEN 3: LOVE CARD -->
+
+<section class="screen" id="screen3">
+
+    <h1>💌 A Special Message For You</h1>
+
+    <p>Yeh card aap ke liye hai, meri Apoooo ❤️</p>
+
+    <div class="card-container" id="cardContainer" onclick="openCard()">
+
+        <div class="love-card">
+
+            <div class="card-front">
+
+                <div class="envelope">💌</div>
+
+                <h2>MY DEAREST APOOOO</h2>
+
+                <p>Click to Open ❤️</p>
+
+            </div>
+
+            <div class="card-inside">
+
+                <div class="urdu-message">
+
+                    آپو تو بھیا کی جان ہے ❤️
+
+                    تو بھیا کے لیے سب کچھ ہے۔
+
+                    تیرے سوا تیرا بھیا کچھ نہیں،
+                    تیرے علاوہ اس بھیا کا کوئی ہے بھی نہیں۔
+
+                    آپو تجھے پتا ہے،
+                    تو دنیا کی Best of Best آپو ہے۔
+
+                    تو نے صرف آپو کا کردار ہی نہیں،
+                    بلکہ ہر ایک کردار ایک دم بہترین نبھایا ہے۔
+
+                    کبھی کسی کا دل نہیں دکھایا،
+                    ہر کسی کی پرواہ کی۔
+
+                    آپو آج تو نہ ہوتی میرے پاس،
+                    تو شاید آج میں زندہ بھی نہ ہوتا۔
+
+                    <br><br>
+
+                    I LOVE YOU SO MUCH ❤️
+
+                    <br>
+
+                    بھیا کی جان 😘
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <p class="card-hint" id="cardHint">👆 Card ko click karke open karo</p>
+
+    <button class="next" id="next3" onclick="goTo(4)">NEXT 🌹</button>
+
+</section>
+
+
+<!-- SCREEN 4: POETRY -->
+
+<section class="screen" id="screen4">
+
+    <h1>🌹 میری پیاری آپو کے نام 🌹</h1>
+
+    <div class="poetry-box">
+
+        <div class="poetry">
+
+            تیری ہنسی سے روشن میری ہر شام رہے،
+            میری آپو کے لبوں پر ہمیشہ مسکراہٹ رہے۔ ❤️
+
+            <br>
+
+            تو پاس ہو تو ہر غم بھول جاتا ہوں،
+            تیری خوشی کے لیے ہر دعا مانگتا ہوں۔
+
+            <br>
+
+            دنیا میں رشتے تو بہت ملتے ہیں،
+            مگر آپو جیسا پیار کہاں ملتا ہے۔
+
+            <br>
+
+            تو صرف میری آپو نہیں میری جان ہے،
+            تیرے ہونے سے ہی میری پہچان ہے۔
+
+            <br>
+
+            اللہ تجھے ہر خوشی عطا کرے،
+            تیرے ہر خواب کو حقیقت بنا دے۔
+
+            <br>
+
+            بس ایک بات ہمیشہ یاد رکھنا،
+            تیرا بھیا تجھ سے بہت پیار کرتا ہے۔ ❤️
+
+        </div>
+
+    </div>
+
+    <div class="bhiya">
+        BHIYA KI JAAN ❤️
+    </div>
+
+    <h2>I LOVE YOU APOOOOO 😘</h2>
+
+    <div class="end-heart">💖🌹💖</div>
+
+    <button class="next" style="display:block" onclick="goTo(1)">
+        AGAIN ❤️
+    </button>
+
+</section>
+
+
+<script>
+
+// SCREEN NAVIGATION
+
+function goTo(number) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById("screen" + number).classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+
+// HEART BURST
+
+function burstHearts() {
+
+    const emojis = ["❤️","💗","💖","💕","💘","💞","💓"];
+
+    for(let i=0; i<45; i++) {
+
+        let heart = document.createElement("div");
+
+        heart.className = "floating-heart";
+        heart.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.fontSize = (20+Math.random()*35) + "px";
+        heart.style.animationDuration = (2+Math.random()*3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(),5000);
+
+    }
+
+}
+
+
+// TREE CLICK
+
+let treeOpened = false;
+
+function treeClick() {
+
+    if(treeOpened) return;
+
+    treeOpened = true;
+
+    burstHearts();
+
+    document.getElementById("treeHint").innerHTML =
+    "Yeh saare hearts meri Apoooo ke liye hain! ❤️";
+
+    document.getElementById("next1").style.display = "inline-block";
+
+}
+
+
+// BIG HEART OPEN
+
+let heartOpened = false;
+
+function openHeart() {
+
+    if(heartOpened) return;
+
+    heartOpened = true;
+
+    document.getElementById("bigHeartArea").classList.add("open");
+
+    setTimeout(() => {
+
+        document.getElementById("lovePaper").style.display = "block";
+
+        burstHearts();
+
+        document.getElementById("next2").style.display = "inline-block";
+
+    },1300);
+
+}
+
+
+// CARD OPEN
+
+let cardOpened = false;
+
+function openCard() {
+
+    if(cardOpened) return;
+
+    cardOpened = true;
+
+    document.getElementById("cardContainer").classList.add("open");
+
+    document.getElementById("cardHint").innerHTML =
+    "Yeh message sirf meri pyari Apoooo ke liye ❤️";
+
+    burstHearts();
+
+    document.getElementById("next3").style.display = "inline-block";
+
+}
+
+
+// BACKGROUND FLOATING HEARTS
+
+setInterval(() => {
+
+    let heart = document.createElement("div");
+
+    heart.className = "floating-heart";
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = "18px";
+    heart.style.animationDuration = "5s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(),5000);
+
+},1000);
+
+</script>
+
+</body>
+</html>
